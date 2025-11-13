@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f617ecfd68b0421abbdd1f9e849c1162, type: 3}
+  m_Name: HttpUploaderProfile
+  m_EditorClassIdentifier: Assembly-CSharp::Solana.Unity.Toolbelt.HttpUploaderProfile
+  uploadEndpoint: https://example.com/upload
+  requestTimeoutSeconds: 15
+  useMultipartFormData: 1
+  multipartFieldName: file
+  responseUriJsonPath: 
+  authenticationHeaderName: Authorization
+  authenticationHeaderValue: 
+  additionalHeaders: []
+  maxRetries: 2
+  retryBackoffSeconds: 1
+  retryBackoffFactor: 2
+  retryOnTimeout: 1
+  retryStatusCodes: 98010000ad010000f4010000f6010000f7010000f8010000

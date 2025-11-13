@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2335500980305800220
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5693711463439353100}
+  - component: {fileID: 2716416383418677800}
+  m_Layer: 0
+  m_Name: Set_Collection_Update_Authority_Transaction_Sender
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &5693711463439353100
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2335500980305800220}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2716416383418677800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2335500980305800220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf1510055ceb41d7b028fc8030ef5eed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Solana.Toolbelt::SetCollectionUpdateAuthorityTransactionSender
+  rpcUrl: https://alien-orbital-sun.solana-mainnet.quiknode.pro/7817ec8194dbc40eb1f1e123afd98d67e86fbfec/
+  authorityPrivateKey: 49itvDMcF8XJ7zbMUpYc8tjk5vhVEXGAtvrLjPxwgmhS9PUWGfPyDV6h3vdQr6xhfwPHUxZEwv1oBgy4voJNpeUj
+  authorityPublicKey: E5mQ27muTebiYaohBsdsCwrvPN3MVoRmECFtL4A5Sx9q
+  programId: GwMpopxNkDYsnucBRPf47QSEsEzA3rS1o6ioMX78hgqx
+  namespacePublicKey: 3Bc5ARkDGM2ZdAe8EjwHMmNrXvpSzQVcPug7MSp4Qhbw
+  collectionMintPublicKey: EhULHuQtpaKUZSdv1kQR7XwYGRfEaU8b1Y7JkbFGQHxW
+  expectedConfigPdaPublicKey: 5bhVoogdhY5VYuLuUuMXaiNrvP4zbmP1wNWstUUvmiF5
+  expectedMintAuthorityPdaPublicKey: G7skWhSjK6oskMKMuCbVuRQSVvrhc1VN1nQYLHR8ewL5
+  expectedCollectionMetadataPdaPublicKey: 
+  newCollectionAuthorityPublicKey: 
+  sendOnStart: 1

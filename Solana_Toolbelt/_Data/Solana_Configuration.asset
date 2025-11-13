@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcfc9bd384a237240957e022e84028df, type: 3}
+  m_Name: Solana_Configuration
+  m_EditorClassIdentifier: 
+  rpcUrls:
+  - https://rpc.shyft.to?api_key=aa_dfo9bB-f1sRJY
+  - https://api.mainnet-beta.solana.com
+  rpcEndpointPriorityList: []
+  streamingRpcUrls:
+  - wss://rpc.shyft.to?api_key=aa_dfo9bB-f1sRJY
+  currentRPCIndex: 0
+  rpcRateLimit: 30
+  studioSOLWalletPublicKey: GhibVT1e5GTp2eEjtJFkgpfovYdFHpb9NTxjcj2o7a2D
+  studioGhibliWalletPublicKey: F461sAXadHsjsJo6apie5Y2VJeytGETx5cC6DFVVtgQD
+  studioRewardsTokenWalletPublicKey: 
+  solPurchaseUrl: https://jup.ag/swap?sell=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v&buy=So11111111111111111111111111111111111111112
+  ghibliPurchaseUrl: https://jup.ag/swap?sell=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v&buy=4TBi66vi32S7J8X1A6eWfaLHYmUXu7CStcEmsJQdpump
+  rewardTokenPurchaseUrl: https://jup.ag/swap?sell=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v&buy=6sWet5H2qNpXnV5CwxSmRThx4z3uVtdjHqRB4VyMkJ8Z
+  ghibliTokenMint: 4TBi66vi32S7J8X1A6eWfaLHYmUXu7CStcEmsJQdpump
+  rewardTokenMint: 6sWet5H2qNpXnV5CwxSmRThx4z3uVtdjHqRB4VyMkJ8Z
+  ghibliTokenIcon: {fileID: 21300000, guid: 47a4a273b0be76d45bd272d808b5cda5, type: 3}
+  solTokenIcon: {fileID: 21300000, guid: c03394484a7ef404f8dc93241a4c8286, type: 3}
+  rewardCoinIcon: {fileID: -4950144012914721142, guid: 9fb23756e39c904479249bbb222db653, type: 3}
+  alphaCollection: {fileID: 11400000, guid: 50319446607e6f545873ec946687cc24, type: 2}
+  betaCollection: {fileID: 11400000, guid: 478786a40fe00d645990a59fd0ceb379, type: 2}
+  levelCreatorCollection: {fileID: 11400000, guid: 58bebd62770d0e94a96cf21eb00d17a8, type: 2}
+  ownerGovernedAssetLedgerProgramId: GwMpopxNkDYsnucBRPf47QSEsEzA3rS1o6ioMX78hgqx
+  levelsCollectionMint: 46DH7dVVXtDuJ23bBbWuZHNKZkeDWdTYtcPUAWYRGEUu
+  ownerGovernedAssetLedgerNamespace: 3Bc5ARkDGM2ZdAe8EjwHMmNrXvpSzQVcPug7MSp4Qhbw
+  ownerGovernedAssetLedgerConfigAccount: 5bhVoogdhY5VYuLuUuMXaiNrvP4zbmP1wNWstUUvmiF5
+  ownerGovernedAssetLedgerAuthorityAccount: G7skWhSjK6oskMKMuCbVuRQSVvrhc1VN1nQYLHR8ewL5
+  ownerGovernedAssetLedgerExpectedConfigAuthority: 5bhVoogdhY5VYuLuUuMXaiNrvP4zbmP1wNWstUUvmiF5
+  ownerGovernedAssetLedgerExpectedPauseState: 2
+  ownerGovernedAssetLedgerMintComputeUnitLimit: 400000
+  ownerGovernedAssetLedgerMintComputeUnitPriceMicroLamports: 2000
+  ownerGovernedAssetLedgerMintTransportRetryCount: 3
+  ownerGovernedAssetLedgerMintTransportRetryDelayMilliseconds: 800
+  ownerGovernedAssetLedgerSecondaryRpcUrl: https://api.mainnet-beta.solana.com
+  thirteenthDiscountPercent: 0.13
+  specialDiscountDay: 13
+  defaultDiscountPercent: 0.13
+  transactionMemoSearchStrings:
+  - Token Toss
+  transactionMemoProgramFilters: []
+  transactionMemoDestinationFilters: []
+  transactionMemoSignatureLimit: 50
+  transactionMemoCaseSensitive: 0
+  levelEditorUnlockMemo: 'Token Toss: Unlocked Level Editor'
+  rewardBundleMemoFormat: 'Token Toss: Reward Coin Bundle {0}'
+  tokenMachineSpinMemo: 'Token Toss: Token Machine Spin'
+  tokenSkinUnlockMemoFormat: 'Token Toss: Unlocked Token Skin {0} - {1}'
+  userGeneratedMintMemo: 'Token Toss: User NFT Mint'
+  walletVerificationMemo: 'Ghiblify Games requests your signature to confirm you
+    control the connected wallet. Signing is a secure, gasless action that will never
+    authorize transactions or transfers. This verification protects your account
+    and enables personalized experiences within Ghiblify Games. Please only proceed
+    if you initiated this request. URI: https://ghiblifygames.com'
+  mintAccountRentDepositLamports: 1461600
+  ataRentDepositLamports: 2039280
+  metadataRentDepositLamports: 5115600
+  manifestRentDepositLamports: 2895360
+  transactionFeeLamports: 15115600
+  nftCacheDurationHours: 6
+  nftCountCacheDurationHours: 12
+  tokenAccountCacheTtlSeconds: 15
+  recentBlockhashCacheTtlSeconds: 120
+  walletManager: {fileID: 0}
+  nftAccessManager: {fileID: 0}
+  levelCreatorPrimaryShare: 90
+  verifyLevelCreator: 0
+  verifyLevelCreatorOnAndroid: 0
+  levelStudioCreators:
+  - address: GhibVT1e5GTp2eEjtJFkgpfovYdFHpb9NTxjcj2o7a2D
+    share: 10
+    verified: 0
+  onWalletConnected:
+    m_PersistentCalls:
+      m_Calls: []
+  onWalletDisconnected:
+    m_PersistentCalls:
+      m_Calls: []
+  onNFTMinted:
+    m_PersistentCalls:
+      m_Calls: []
+  onTransactionFailed:
+    m_PersistentCalls:
+      m_Calls: []
+  onWalletConnectionFailed:
+    m_PersistentCalls:
+      m_Calls: []
+  onWalletVerified:
+    m_PersistentCalls:
+      m_Calls: []
+  onSolBalanceChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  onWalletStreamingHealthChanged:
+    m_PersistentCalls:
+      m_Calls: []
