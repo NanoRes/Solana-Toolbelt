@@ -2,17 +2,7 @@
     "name": "Solana.Toolbelt",
     "rootNamespace": "Solana.Unity.Toolbelt",
     "references": [
-        "com.solana.unity_sdk",
-        "GUID:cfd977d768f9a4a5ba9bfdf951a06cdd",
-        "GUID:f629e0deb6a8f41868e1577a30d634cc",
-        "GUID:8c08a27e519674f86a4e1c4a8ec1f0ae",
-        "GUID:c770688ab8184224bab3e8a76a4589e4",
-        "GUID:2761dc8ee912640b58b0f7d69ffa7ba3",
-        "GUID:cc7ed760e9aaa446893a868b4d28e3b3",
-        "GUID:0e8cb6c624f3542819d0e3ba898294d3",
-        "GUID:bd2903a00f5aa4215b07a42d592edbff",
-        "GUID:80326514a07fc4867a3efc6b25acbe14",
-        "Unity.Newtonsoft.Json"
+        "com.solana.unity_sdk"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
