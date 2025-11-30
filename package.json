@@ -7,7 +7,7 @@
   "keywords": ["solana", "blockchain", "wallet", "ogal", "nanores"],
   "category": "SDK",
   "dependencies": {
-    "com.cysharp.unitask": "2.5.0",
+    "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask#2.5.0",
     "com.unity.textmeshpro": "3.0.6",
     "com.unity.nuget.newtonsoft-json": "3.2.1"
   },

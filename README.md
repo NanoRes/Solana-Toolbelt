@@ -34,6 +34,8 @@ All folders are organised according to the Unity Package Manager (UPM) conventio
    ```
 4. Unity will download the package and import the runtime, editor, and sample content.
 
+> **Dependencies**: All dependencies are resolved automatically, including [UniTask](https://github.com/Cysharp/UniTask) which is pulled directly from its official Git repository. No additional scoped registries (e.g., OpenUPM) are required.
+
 ### As a Unity Asset Store Package
 
 Once published by NanoRes Studios, locate **NanoRes Solana Toolbelt** on the Unity Asset Store and press **Add to My Assets**. Use the Unity Package Manager to download it into your project.
