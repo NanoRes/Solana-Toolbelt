@@ -2,7 +2,8 @@
     "name": "Solana.Unity.SDK.Editor",
     "rootNamespace": "Solana.Unity.SDK.Editor",
     "references": [
-        "GUID:f3be9c85e809b764eab4c14239272b33"
+        "GUID:f3be9c85e809b764eab4c14239272b33",
+        "Unity.Newtonsoft.Json"
     ],
     "includePlatforms": [
         "Editor"

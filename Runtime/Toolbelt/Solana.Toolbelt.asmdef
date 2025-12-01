@@ -2,7 +2,8 @@
     "name": "Solana.Toolbelt",
     "rootNamespace": "Solana.Unity.Toolbelt",
     "references": [
-        "com.solana.unity_sdk"
+        "com.solana.unity_sdk",
+        "Unity.Newtonsoft.Json"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
