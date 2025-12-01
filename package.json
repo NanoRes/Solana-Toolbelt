@@ -7,15 +7,20 @@
   "keywords": ["solana", "blockchain", "wallet", "ogal", "nanores", "web3"],
   "category": "SDK",
   "dependencies": {
-    "com.unity.textmeshpro": "3.0.6",
+    "com.unity.textmeshpro": "3.0.6"
   },
-  //"samples": [
-  //  {
-  //   "displayName": "OGAL Demo",
-  //    "description": "OGAL demo scene, along with wallet support.",
-  //    "path": "Samples/Solana Wallet"
-  //  }
-  //],
+  "samples": [
+    {
+     "displayName": "OGAL Demo - Read Only",
+      "description": "OGAL demo scene for read-only experiences.",
+      "path": ""
+    },
+    {
+     "displayName": "OGAL Demo - Read & Write",
+      "description": "OGAL demo scene for read & write experiences.",
+      "path": ""
+    }
+  ],
   "author": {
     "name": "NanoRes Studios"
   }
