@@ -1,0 +1,22 @@
+{
+  "name": "com.nanores.solana_toolbelt",
+  "displayName": "NanoRes Solana Toolbelt",
+  "version": "1.0.3",
+  "unity": "2021.3",
+  "description": "Runtime tooling, wallet adapters, and OGAL integrations for building Solana-enabled user-generated content experiences in Unity.",
+  "keywords": ["solana", "blockchain", "wallet", "ogal", "nanores", "web3"],
+  "category": "SDK",
+  "dependencies": {
+    "com.unity.textmeshpro": "3.0.6",
+  },
+  //"samples": [
+  //  {
+  //   "displayName": "OGAL Demo",
+  //    "description": "OGAL demo scene, along with wallet support.",
+  //    "path": "Samples/Solana Wallet"
+  //  }
+  //],
+  "author": {
+    "name": "NanoRes Studios"
+  }
+}
