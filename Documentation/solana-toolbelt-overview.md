@@ -3,6 +3,9 @@
 ## Summary
 The Solana Toolbelt layers a configurable runtime, OGAL-focused services, storage automation, and UI abstractions on top of the base Solana Unity SDK, turning the SDK’s primitives into ready-made gameplay infrastructure for Unity teams.
 
+## RPC Abstraction
+Toolbelt configures the Solana Unity SDK with the RPC settings defined in `SolanaConfiguration`. `ToolbeltRuntime` applies the ordered RPC URL list (including per-endpoint priority ordering), the primary WebSocket endpoint, and the configured RPC rate limit before gameplay scripts run. The actual RPC client behavior—connection handling, retries, websocket streaming, and request semantics—continues to be provided by the Solana Unity SDK’s `Web3`/wallet stack rather than a Toolbelt-owned intent layer.
+
 ## Unique additions beyond the SDK
 - **Centralised runtime & configuration** – `ToolbeltRuntime` automatically discovers the project’s `SolanaConfiguration`, wires in the wallet manager, NFT access manager, UI bridge, storage, and pricing data, and applies ordered RPC endpoints and rate limits before gameplay scripts run.
 - **Service provider pattern** – `SolanaConfiguration.InitializeToolbeltServices` registers wallet, inventory, metadata, pricing, storage, and access services so scenes consume Toolbelt interfaces instead of raw SDK types, keeping dependencies clean and swappable.
