@@ -14,6 +14,12 @@ The Solana Toolbelt layers a configurable runtime, OGAL-focused services, storag
 - **Metadata robustness** – `MetadataQueryService` fetches on-chain metadata, falls back across multiple IPFS gateways, and validates content hashes so builds remain resilient when gateways degrade.
 - **UI bridge contracts** – `IToolbeltUiBridge` defines the popup, progress, and mint dialogs Toolbelt flows expect, letting developers map blockchain flows into their own UI without modifying Toolbelt internals.
 
+## OGAL Account Helpers
+- **OGAL mint/update/admin helpers** – `OwnerGovernedAssetLedgerService` issues mint, manifest update, pause, authority update, and namespace migration transactions while wiring the required PDA derivations and runtime error handling from `Runtime/Toolbelt/Services/Owner_Governed_Asset_Ledger_Service/`.
+- **Registry/config parsing** – `OwnerGovernedAssetLedgerConfigAccount` (and related OGAL models) deserialize registry state, including authority, bumps, namespace, and pause flags, so UI and gameplay layers can inspect configuration data without manual Borsh parsing.
+- **Collection authority validation** – the service validates collection metadata and master edition authority before minting, guarding against mismatched update authority or non-unique master editions when verifying collections.
+- **Creator verification** – mint requests sanitize creator lists and enforce verified creator signatures, downgrading creators when signatures are missing and surfacing actionable error messages.
+
 ## Why developers find it useful
 - Converts the SDK’s low-level primitives into domain services that can be consumed via dependency injection, shrinking the amount of SDK-specific code gameplay teams must write or maintain.
 - Prebuilt OGAL, minting, and Bundlr workflows deliver battle-tested transaction, storage, and error-handling logic, accelerating UGC, marketplace, and live-ops features without developers having to reverse-engineer on-chain programs.
