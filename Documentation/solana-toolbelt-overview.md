@@ -6,6 +6,16 @@ The Solana Toolbelt layers a configurable runtime, OGAL-focused services, storag
 ## RPC Abstraction
 Toolbelt configures the Solana Unity SDK with the RPC settings defined in `SolanaConfiguration`. `ToolbeltRuntime` applies the ordered RPC URL list (including per-endpoint priority ordering), the primary WebSocket endpoint, and the configured RPC rate limit before gameplay scripts run. The actual RPC client behavior—connection handling, retries, websocket streaming, and request semantics—continues to be provided by the Solana Unity SDK’s `Web3`/wallet stack rather than a Toolbelt-owned intent layer.
 
+## The Toolbelt deliberately does not
+- Add implicit retry loops to every flow; most gameplay and service calls expect callers to surface errors and decide how to recover rather than silently reissuing requests.
+- Replace the SDK’s transaction submission semantics or wallet client behavior; Toolbelt prefers to layer orchestration and UI prompts on top of the SDK instead of wrapping every RPC with hidden resilience logic.
+- Guarantee “always-on” network success; it focuses on structured error handling and UX-friendly prompts, leaving retry policies explicit and configurable in targeted services.
+
+## What the Toolbelt Does Not Guarantee
+- Automatic retries for every RPC or transaction path. Most Toolbelt workflows avoid implicit retries to keep error handling deterministic and user-visible.
+- However, some flows intentionally opt into retry behavior: OGAL minting supports configurable transport retries with optional secondary RPC failover plus creator-signature downgrade retries (see `OwnerGovernedAssetLedgerService` for `MintTransportRetryDecision` and the “Retrying with the creator downgraded” log line), and `RpcEndpointManager.ExecuteAsync` retries across endpoints for retryable errors.
+- Guaranteed success on transient RPC failures; retry logic is scoped to specific services and relies on project configuration to enable or tune it.
+
 ## Unique additions beyond the SDK
 - **Centralised runtime & configuration** – `ToolbeltRuntime` automatically discovers the project’s `SolanaConfiguration`, wires in the wallet manager, NFT access manager, UI bridge, storage, and pricing data, and applies ordered RPC endpoints and rate limits before gameplay scripts run.
 - **Service provider pattern** – `SolanaConfiguration.InitializeToolbeltServices` registers wallet, inventory, metadata, pricing, storage, and access services so scenes consume Toolbelt interfaces instead of raw SDK types, keeping dependencies clean and swappable. The OGAL helper is created in `SolanaConfiguration.RebuildRuntimeServicesAsync` via `BuildOwnerGovernedAssetLedgerServiceAsync` and accessed through `SolanaConfiguration.ownerGovernedAssetLedgerService`, not through `IToolbeltServiceProvider`.
