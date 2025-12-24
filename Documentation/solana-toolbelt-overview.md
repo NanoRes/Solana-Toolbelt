@@ -38,6 +38,9 @@ Toolbelt configures the Solana Unity SDK with the RPC settings defined in `Solan
 - Prebuilt OGAL, minting, and Bundlr workflows deliver battle-tested transaction, storage, and error-handling logic, accelerating UGC, marketplace, and live-ops features without developers having to reverse-engineer on-chain programs.
 - Wallet/session stack and UI bridge abstractions provide editor simulators, verification workflows, and popup hooks that teams can drop into scenes, giving consistent UX across WebGL, mobile, and desktop without rewriting adapters.
 
+## The Toolbelt deliberately does not
+- **Replace the SDK’s RPC stack/protocols** – the Toolbelt still relies on the Solana Unity SDK’s RPC clients and request semantics, but it does provide endpoint selection plus retry/failover orchestration via `RpcEndpointManager` (`Runtime/Toolbelt/_Data/_Scripts/DomainServices/RpcEndpointManager.cs`).
+
 ## Why Unity developers would pay for the Toolbelt
 - Purchasing the Toolbelt buys a curated suite of production-ready systems—RPC failover, wallet orchestration, OGAL services, Bundlr automation, NFT access gating, and UI bridges—that would otherwise take significant engineering time to design, verify, and maintain on top of the SDK.
 - The asset effectively packages expert knowledge of OGAL and Solana workflows into reusable components, reducing launch risk and enabling teams to focus on gameplay and UX rather than blockchain plumbing.
