@@ -27,6 +27,31 @@ Toolbelt configures the Solana Unity SDK with the RPC settings defined in `Solan
 - **Metadata robustness** – `MetadataQueryService` fetches on-chain metadata accounts, loads off-chain JSON with IPFS gateway fallback, and validates content hashes so builds remain resilient when gateways degrade.
 - **UI bridge contracts** – `IToolbeltUiBridge` defines the popup, progress, and mint dialogs Toolbelt flows expect, letting developers map blockchain flows into their own UI without modifying Toolbelt internals.
 
+## Uploader configuration and usage
+Toolbelt ships two uploader families: the Bundlr/Irys uploader for Arweave-backed storage and HTTP uploaders for custom REST endpoints. Both flow into the same mint services via `ILevelJsonUploader` and `INftStorageUploader`.
+
+### Bundlr/Irys uploader configuration
+`BundlrUploader` (`Runtime/Toolbelt/Uploaders/Bundlr_Irys_Uploader/BundlrUploader.cs`) signs data items locally and posts them to the configured Bundlr/Irys node (`bundlrNodeUrl`). The resulting transaction IDs are turned into public URIs by appending them to the configured gateway (`arweaveGatewayUrl`, defaulting to `https://gateway.irys.xyz`).
+
+Key configuration details:
+- **Private key sources** – The uploader resolves the signing key in priority order: runtime override (`SetPrivateKey`), inspector `privateKeyBase58`, then the environment variable referenced by `privateKeyEnvironmentVariable`. The resolved key is cached into an `Account` for uploads.
+- **Funding flow** – When Toolbelt needs to fund Bundlr, `SolanaConfiguration` first transfers SOL from the connected wallet to the uploader wallet, then `BundlrUploader.TryDepositAsync` submits a transfer from the uploader wallet to the Bundlr node’s Solana deposit address. `BundlrWalletKeyStore` can persist a generated private key per wallet for consistent uploads across sessions. `GetBundlrBalanceAsync` and `GetUploadPriceAsync` query the node for balance/price, while `GetUploaderWalletLamportsAsync` checks the uploader wallet’s SOL balance before sending.
+- **`checkBalanceBeforeUpload`** – When enabled, `BundlrUploadTransport` queries the Bundlr balance and upload price before every upload and throws if the balance is insufficient. Disable this if you want uploads to proceed without the preflight balance check.
+- **Gateway URL** – The `arweaveGatewayUrl` controls the public URI returned after upload. The gateway is combined with the transaction ID (e.g., `https://gateway.irys.xyz/<txId>`), so use this field to point to a preferred Arweave gateway.
+
+### HTTP uploader profiles
+`HttpUploaderProfile` (`Runtime/Toolbelt/Uploaders/HTTP_JSON_Uploader/HttpUploaderProfile.cs`) stores reusable HTTP upload settings:
+- **Authentication headers** – The profile can emit a primary authentication header (`authenticationHeaderName` + `authenticationHeaderValue`, defaulting to `Authorization`) plus any additional headers listed in `additionalHeaders`. These are attached to every request built by `HttpUploaderUtility`.
+- **Response parsing** – `responseUriJsonPath` uses Newtonsoft JSONPath syntax to extract the URI from a JSON response body. If left empty, the raw response body is treated as the URI.
+
+Profiles are consumed by:
+- `HttpJsonUploader` (implements `ILevelJsonUploader`) for JSON-only uploads.
+- `HttpNftStorageUploader` (implements `INftStorageUploader`) for media + JSON, with optional separate profiles for media and metadata.
+
+### Choosing the right uploader
+- **Bundlr/Irys** – Use when you want Arweave-backed storage with automatic Bundlr funding and balance checks. `BundlrUploader` implements both `ILevelJsonUploader` and `INftStorageUploader`, so a single component can power level metadata uploads and NFT media/JSON uploads.
+- **HTTP uploaders** – Use when you need to integrate with a custom storage API (pinning services, project-specific endpoints, or centralized storage). `HttpJsonUploader` feeds `LevelEditorMintService` through `ILevelJsonUploader`, and `HttpNftStorageUploader` feeds `UserGeneratedNftMintService` through `INftStorageUploader`.
+
 ## OGAL Account Helpers
 - **OGAL mint/update/admin helpers** – `OwnerGovernedAssetLedgerService` issues mint, manifest update, pause, authority update, and namespace migration transactions while wiring the required PDA derivations and runtime error handling from `Runtime/Toolbelt/Services/Owner_Governed_Asset_Ledger_Service/`.
 - **Registry/config parsing** – `OwnerGovernedAssetLedgerConfigAccount` (and related OGAL models) deserialize registry state, including authority, bumps, namespace, and pause flags, so UI and gameplay layers can inspect configuration data without manual Borsh parsing.
