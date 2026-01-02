@@ -30,9 +30,11 @@ All folders are organised according to the Unity Package Manager (UPM) conventio
 2. Choose **Add package from git URL…**.
 3. Enter the repository URL, for example:
    ```
-   https://github.com/NanoRes-Studios/Solana-Toolbelt.git
+   https://github.com/NanoRes/Solana-Toolbelt.git
    ```
+   > **Note:** If this repository is private, Unity Package Manager must have access to it. Use a GitHub personal access token in the URL (or configure a Git credential helper) or publish the package to a private registry your project can access.
 4. Unity will download the package and import the runtime, editor, and sample content.
+5. **Troubleshooting:** If you see **Repository not found**, confirm the URL casing and that your credentials/token grant access to the repository (or switch to a registry that your Unity project can reach).
 
 ### As a Unity Asset Store Package
 
